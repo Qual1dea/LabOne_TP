@@ -1,0 +1,28 @@
+﻿@model PartyInvites.Models.GuestResponse
+
+@{
+    ViewBag.Title = "Результат";
+    ViewBag.Resulta = 24;
+} 
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>@ViewBag.Title</title>
+</head>
+<body>
+    <b> Ответ: @Model.Result </b>
+    @if (ViewBag.Resulta== @Model.Result)
+    {
+        <b> , <i>совпадает</i> с заданным числом</b>
+    }
+    else
+    {
+        <b> , <i>не совпадает</i> с заданным числом</b>
+    }
+    <p>
+    @Html.ActionLink("Показать решение уравнения", "Equation")</p>
+</body>
+</html>

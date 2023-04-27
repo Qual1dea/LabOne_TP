@@ -1,0 +1,48 @@
+﻿@model PartyInvites.Models.GuestResponse
+
+@{
+    ViewBag.Title = "Калькулятор";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <div class="Data">
+            @Html.ValidationSummary()
+            <b>
+                <p>Первое значение: @Html.TextBoxFor(x => x.Operand_1, new { @Value = @Model.Operand_1 }) </p>
+                <p>Второе значение: @Html.TextBoxFor(x => x.Operand_2, new { @Value = @Model.Operand_2 }) </p>
+                <p>
+                    @Html.LabelFor(x => x.Operation)
+                    @Html.DropDownListFor(x => x.Operation, new List<SelectListItem>{
+                            new SelectListItem() {Text = " +", Value = "+"},
+                            new SelectListItem() {Text = " -", Value = "-"},
+                            new SelectListItem() {Text = " *", Value = "*"},
+                            new SelectListItem() {Text = " /", Value = "/"},
+                        })
+                </p>
+            </b>
+        </div>
+        <input class="button" type="submit" name="click" value="Результат" />
+        <input class="button" type="submit" name="click" value="Очистить" />
+        //<input type="reset" value="Сбросить" />
+    }
+</body>
+</html>
+
+<style>
+    input {
+        padding: 10px;
+        font-size: 22px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        width: 15%;
+    }
+</style>
